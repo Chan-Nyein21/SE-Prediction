@@ -1,0 +1,124 @@
+/* Results Page Specific Styles */
+
+.results-table-container {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.results-table {
+    margin: 0;
+    width: 100%;
+}
+
+.results-table thead {
+    background-color: #3AAA35 !important;
+    display: table-header-group;
+}
+
+.results-table thead tr {
+    display: table-row;
+    background-color: #3AAA35 !important;
+}
+
+.results-table thead th {
+    color: white !important;
+    background-color: #3AAA35 !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 18px 20px;
+    border: none !important;
+    text-align: left;
+    display: table-cell;
+}
+
+.results-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.results-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.results-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.results-table tbody td {
+    padding: 16px 20px;
+    color: #30693A;
+    font-size: 0.95rem;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+/* Badge Styles */
+.badge-high {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.badge-medium {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background-color: #fff3cd;
+    color: #856404;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.badge-low {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results-table-container {
+        overflow-x: auto;
+    }
+    
+    .results-table {
+        min-width: 600px;
+    }
+    
+    .results-table thead th,
+    .results-table tbody td {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .badge-high,
+    .badge-medium,
+    .badge-low {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-table {
+        min-width: 500px;
+    }
+    
+    .results-table thead th,
+    .results-table tbody td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+}
