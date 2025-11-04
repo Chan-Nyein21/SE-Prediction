@@ -61,6 +61,7 @@ def login_post():
     """Handle login form submission"""
     email = request.form.get('email')
     password = request.form.get('password')
+    remember_me = request.form.get('remember')  # Get "Remember me" checkbox value
     
     if not email or not password:
         flash('Please fill in all fields', 'error')
@@ -88,8 +89,11 @@ def login_post():
         # Clear any existing session data first
         session.clear()
         
-        # Set session as permanent BEFORE adding data
-        session.permanent = True
+        # Set session as permanent based on "Remember me" checkbox
+        if remember_me:
+            session.permanent = True  # Session lasts 30 days (as configured)
+        else:
+            session.permanent = False  # Session expires when browser closes
         
         # Add user data to session
         session['user_id'] = user['id']

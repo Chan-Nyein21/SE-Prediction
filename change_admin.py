@@ -6,9 +6,8 @@ in the SE Prediction database.
 """
 
 from werkzeug.security import generate_password_hash
-from flask_mysqldb import MySQL
 from dotenv import load_dotenv
-import mysql.connector
+import MySQLdb
 import os
 import sys
 
@@ -32,8 +31,13 @@ def main():
     try:
         # Connect to database
         print("📡 Connecting to database...")
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor(dictionary=True)
+        conn = MySQLdb.connect(
+            host=db_config['host'],
+            user=db_config['user'],
+            passwd=db_config['password'],
+            db=db_config['database']
+        )
+        cursor = conn.cursor(MySQLdb.cursors.DictCursor)
         
         # Show current admin info
         cursor.execute("SELECT name, email FROM users WHERE role = 'admin'")
@@ -119,7 +123,7 @@ def main():
         cursor.close()
         conn.close()
         
-    except mysql.connector.Error as err:
+    except MySQLdb.Error as err:
         print(f"❌ Database error: {err}")
         sys.exit(1)
     except Exception as e:
