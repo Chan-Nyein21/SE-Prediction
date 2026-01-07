@@ -177,7 +177,14 @@ def user_dashboard():
         flash('Please login to access this page', 'error')
         return redirect(url_for('login'))
     
-    return render_template('user/dashboard.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('user/dashboard.html', selected_year=selected_year)
 
 @app.route('/user/analytics')
 def analytics():
@@ -186,7 +193,14 @@ def analytics():
         flash('Please login to access this page', 'error')
         return redirect(url_for('login'))
     
-    return render_template('user/analytics.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('user/analytics.html', selected_year=selected_year)
 
 @app.route('/user/predict', methods=['GET', 'POST'])
 def predict():
@@ -196,11 +210,23 @@ def predict():
         return redirect(url_for('login'))
     
     if request.method == 'POST':
+        # Get the selected admission year from form
+        admission_year = request.form.get('admission_year', type=int)
+        if admission_year:
+            session['admission_year'] = admission_year
+            
         # Handle file upload and prediction (will implement with ML model later)
-        flash('Prediction completed successfully!', 'success')
+        flash(f'Prediction completed successfully for admission year {admission_year}!', 'success')
         return redirect(url_for('predict'))
     
-    return render_template('user/predict.html')
+    # Get selected year for GET request
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('user/predict.html', selected_year=selected_year)
 
 @app.route('/user/results')
 def results():
@@ -209,7 +235,14 @@ def results():
         flash('Please login to access this page', 'error')
         return redirect(url_for('login'))
     
-    return render_template('user/results.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('user/results.html', selected_year=selected_year)
 
 @app.route('/admin/dashboard')
 def admin_dashboard():
@@ -259,7 +292,14 @@ def admin_overview():
         flash('Access denied', 'error')
         return redirect(url_for('login'))
     
-    return render_template('admin/overview.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('admin/overview.html', selected_year=selected_year)
 
 @app.route('/admin/accept-user', methods=['POST'])
 def accept_user():
@@ -301,11 +341,24 @@ def admin_predict():
         return redirect(url_for('login'))
     
     if request.method == 'POST':
+        # Get the selected admission year from form
+        admission_year = request.form.get('admission_year', type=int)
+        if admission_year:
+            session['admission_year'] = admission_year
+            
         # Handle file upload and prediction (will implement with ML model later)
-        flash('Prediction completed successfully!', 'success')
+        # Store prediction results with the admission year
+        flash(f'Prediction completed successfully for admission year {admission_year}!', 'success')
         return redirect(url_for('admin_predict'))
     
-    return render_template('admin/predict.html')
+    # Get selected year for GET request
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('admin/predict.html', selected_year=selected_year)
 
 @app.route('/admin/results')
 def admin_results():
@@ -314,7 +367,14 @@ def admin_results():
         flash('Access denied', 'error')
         return redirect(url_for('login'))
     
-    return render_template('admin/results.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('admin/results.html', selected_year=selected_year)
 
 @app.route('/admin/analytics')
 def admin_analytics():
@@ -323,7 +383,14 @@ def admin_analytics():
         flash('Access denied', 'error')
         return redirect(url_for('login'))
     
-    return render_template('admin/analytics.html')
+    # Get selected year from query parameter or session
+    selected_year = request.args.get('year', type=int)
+    if selected_year:
+        session['admission_year'] = selected_year
+    else:
+        selected_year = session.get('admission_year', datetime.now().year + 1)
+    
+    return render_template('admin/analytics.html', selected_year=selected_year)
 
 @app.route('/logout')
 def logout():

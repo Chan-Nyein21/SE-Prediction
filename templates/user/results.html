@@ -47,10 +47,22 @@
 
     <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Welcome Section -->
+        <!-- Year Selection and Welcome Section -->
         <div class="welcome-section">
-            <h1 class="page-title">Enrollment Overview</h1>
-            <p class="page-subtitle">Summary of applicant data and model predictions</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h1 class="page-title">Enrollment Overview</h1>
+                    <p class="page-subtitle">Summary of applicant data and model predictions</p>
+                </div>
+                <div class="year-selector-container">
+                    <label for="admissionYear" class="year-label">
+                        <i class="bi bi-calendar-event"></i> Admission Year
+                    </label>
+                    <select id="admissionYear" class="year-select">
+                        <!-- Years will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
         </div>
 
         <!-- Results Table -->
@@ -58,69 +70,69 @@
             <table class="table results-table">
                 <thead>
                     <tr>
-                        <th>STUDENT ID</th>
+                        <th>RECORD NO.</th>
                         <th>PREDICTED PROBABILITY</th>
                         <th>ENROLLMENT LIKELIHOOD</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>6631503001</td>
+                        <td>S-001</td>
                         <td>85.9%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503002</td>
+                        <td>S-002</td>
                         <td>73.4%</td>
                         <td><span class="badge-medium">Medium</span></td>
                     </tr>
                     <tr>
-                        <td>6631503003</td>
+                        <td>S-003</td>
                         <td>90.2%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503004</td>
+                        <td>S-004</td>
                         <td>89.9%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503005</td>
+                        <td>S-005</td>
                         <td>30.2%</td>
                         <td><span class="badge-low">Low</span></td>
                     </tr>
                     <tr>
-                        <td>6631503006</td>
+                        <td>S-006</td>
                         <td>74.3%</td>
                         <td><span class="badge-medium">Medium</span></td>
                     </tr>
                     <tr>
-                        <td>6631503007</td>
+                        <td>S-007</td>
                         <td>82.4%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503008</td>
+                        <td>S-008</td>
                         <td>88.8%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503009</td>
+                        <td>S-009</td>
                         <td>40.7%</td>
                         <td><span class="badge-low">Low</span></td>
                     </tr>
                     <tr>
-                        <td>6631503010</td>
+                        <td>S-010</td>
                         <td>63.3%</td>
                         <td><span class="badge-medium">Medium</span></td>
                     </tr>
                     <tr>
-                        <td>6631503011</td>
+                        <td>S-011</td>
                         <td>89.3%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
                     <tr>
-                        <td>6631503012</td>
+                        <td>S-012</td>
                         <td>93.4%</td>
                         <td><span class="badge-high">High</span></td>
                     </tr>
@@ -150,5 +162,6 @@
     
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/year-selector.js') }}"></script>
 </body>
 </html>

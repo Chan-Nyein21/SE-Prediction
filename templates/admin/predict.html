@@ -48,12 +48,27 @@
 
     <!-- Main Content -->
     <div class="dashboard-container">
+        <!-- Year Selection Section -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="predict-title mb-0">Predict Student Enrollment</h2>
+            </div>
+            <div class="year-selector-container">
+                <label for="admissionYear" class="year-label">
+                    <i class="bi bi-calendar-event"></i> Admission Year
+                </label>
+                <select id="admissionYear" class="year-select">
+                    <!-- Years will be populated by JavaScript -->
+                </select>
+            </div>
+        </div>
+
         <!-- Prediction Card -->
         <div class="predict-card">
-            <h2 class="predict-title">Predict Student Enrollment</h2>
             <p class="predict-subtitle">Upload Student Data File</p>
             
             <form id="predictForm" method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="selectedYear" name="admission_year" value="">
                 <!-- File Upload Area -->
                 <div class="upload-area" id="uploadArea">
                     <input type="file" id="fileInput" name="file" accept=".csv,.xlsx" hidden>
@@ -113,5 +128,6 @@
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
     <script src="{{ url_for('static', filename='js/predict.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/year-selector.js') }}"></script>
 </body>
 </html>

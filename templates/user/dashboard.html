@@ -46,50 +46,189 @@
 
     <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Welcome Section -->
+        <!-- Year Selection and Welcome Section -->
         <div class="welcome-section">
-            <h1 class="page-title">Enrollment Overview</h1>
-            <p class="page-subtitle">Summary of applicant data and model predictions</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h1 class="page-title">Enrollment Overview</h1>
+                    <p class="page-subtitle">Real-time insights and comprehensive analysis of enrollment predictions</p>
+                </div>
+                <div class="year-selector-container">
+                    <label for="admissionYear" class="year-label">
+                        <i class="bi bi-calendar-event"></i> Admission Year
+                    </label>
+                    <select id="admissionYear" class="year-select">
+                        <!-- Years will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
         </div>
 
-        <!-- Stats Cards -->
-        <div class="row g-4">
+        <!-- Stats Cards with Gradient Backgrounds -->
+        <div class="row g-4 mb-5">
             <!-- Total Applicants Card -->
             <div class="col-md-4">
-                <div class="stat-card">
-                    <div class="stat-icon">
+                <div class="stat-card stat-card-blue">
+                    <div class="stat-icon-circle">
                         <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Total Applicants</p>
-                        <h2 class="stat-value">800</h2>
+                        <p class="stat-label-white">Total Applicants</p>
+                        <h2 class="stat-value-white">800</h2>
+                        <div class="stat-trend">
+                            <i class="bi bi-arrow-up-circle-fill"></i>
+                            <span>+12% from last year</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Predicted Enrollments Card -->
             <div class="col-md-4">
-                <div class="stat-card">
-                    <div class="stat-icon">
+                <div class="stat-card stat-card-green">
+                    <div class="stat-icon-circle">
                         <i class="bi bi-graph-up-arrow"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Predicted Enrollments</p>
-                        <h2 class="stat-value">120</h2>
+                        <p class="stat-label-white">Predicted Enrollments</p>
+                        <h2 class="stat-value-white">120</h2>
+                        <div class="stat-trend">
+                            <i class="bi bi-arrow-up-circle-fill"></i>
+                            <span>15% enrollment rate</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Model Accuracy Card -->
             <div class="col-md-4">
-                <div class="stat-card">
-                    <div class="stat-icon">
+                <div class="stat-card stat-card-purple">
+                    <div class="stat-icon-circle">
                         <i class="bi bi-check-circle-fill"></i>
                     </div>
                     <div class="stat-content">
-                        <p class="stat-label">Model Accuracy</p>
-                        <h2 class="stat-value">95.4%</h2>
+                        <p class="stat-label-white">Model Accuracy</p>
+                        <h2 class="stat-value-white">95.4%</h2>
+                        <div class="stat-trend">
+                            <i class="bi bi-award-fill"></i>
+                            <span>High confidence</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enrollment Distribution Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-8">
+                <div class="info-card">
+                    <div class="card-header-custom">
+                        <h3><i class="bi bi-pie-chart-fill"></i> Enrollment Likelihood Distribution</h3>
+                        <span class="badge bg-success">Live Data</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="likelihood-item">
+                            <div class="likelihood-header">
+                                <span class="likelihood-label">
+                                    <span class="badge-high-inline">High Likelihood</span>
+                                    <span class="likelihood-percent">60%</span>
+                                </span>
+                                <span class="likelihood-count">480 students</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill progress-high" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="likelihood-item">
+                            <div class="likelihood-header">
+                                <span class="likelihood-label">
+                                    <span class="badge-medium-inline">Medium Likelihood</span>
+                                    <span class="likelihood-percent">25%</span>
+                                </span>
+                                <span class="likelihood-count">200 students</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill progress-medium" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="likelihood-item">
+                            <div class="likelihood-header">
+                                <span class="likelihood-label">
+                                    <span class="badge-low-inline">Low Likelihood</span>
+                                    <span class="likelihood-percent">15%</span>
+                                </span>
+                                <span class="likelihood-count">120 students</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill progress-low" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="info-card info-card-highlight">
+                    <div class="card-header-custom">
+                        <h3><i class="bi bi-lightbulb-fill"></i> Key Insights</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="insight-item">
+                            <div class="insight-icon">
+                                <i class="bi bi-trophy-fill"></i>
+                            </div>
+                            <div class="insight-text">
+                                <h4>Top Performance</h4>
+                                <p>Model achieves 95.4% accuracy in predictions</p>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <div class="insight-text">
+                                <h4>Strong Interest</h4>
+                                <p>60% applicants show high enrollment probability</p>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                            <div class="insight-text">
+                                <h4>Target Achieved</h4>
+                                <p>Expected 120 enrollments meet department goals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Row -->
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-value">680</div>
+                    <div class="mini-stat-label">High + Medium Likelihood</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-value">15%</div>
+                    <div class="mini-stat-label">Enrollment Rate</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-value">800</div>
+                    <div class="mini-stat-label">Total Applications</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-value">2026</div>
+                    <div class="mini-stat-label">Academic Year</div>
                 </div>
             </div>
         </div>
@@ -116,5 +255,6 @@
     
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/year-selector.js') }}"></script>
 </body>
 </html>
